@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_144453) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_140226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "order_pies", force: :cascade do |t|
-    t.bigint "pies_id", null: false
-    t.bigint "orders_id", null: false
+  create_table "invoice_pies", force: :cascade do |t|
+    t.bigint "pie_id", null: false
+    t.bigint "invoice_id", null: false
     t.integer "quantity"
     t.string "toppings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_order_pies_on_orders_id"
-    t.index ["pies_id"], name: "index_order_pies_on_pies_id"
+    t.index ["invoice_id"], name: "index_invoice_pies_on_invoice_id"
+    t.index ["pie_id"], name: "index_invoice_pies_on_pie_id"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "invoices", force: :cascade do |t|
     t.boolean "completed", default: false
     t.integer "status", default: 0
     t.string "expected_delivery_time"
@@ -34,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_144453) do
     t.string "additional_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "pies", force: :cascade do |t|
@@ -55,12 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_144453) do
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "password_digest"
-    t.string "role"
-    t.string "about_me"
+    t.string "role", default: "0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "order_pies", "orders", column: "orders_id"
-  add_foreign_key "order_pies", "pies", column: "pies_id"
+  add_foreign_key "invoice_pies", "invoices"
+  add_foreign_key "invoice_pies", "pies", column: "pie_id"
+  add_foreign_key "invoices", "users"
 end
