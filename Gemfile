@@ -53,7 +53,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "pry"
   gem "shoulda-matchers"
-
+  gem "faker"
+  gem "launchy"
+  gem "orderly"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -73,10 +76,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "factory_bot_rails"
-  gem "faker"
-  gem "launchy"
-  gem "orderly"
-  gem "rspec-rails"
+
+
   gem "rubocop", require: false
   gem "simplecov"
 end
