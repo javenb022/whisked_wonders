@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_22_140226) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_28_161025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,14 +55,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_140226) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
     t.string "password_digest"
     t.string "role", default: "0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "zip", null: false
   end
 
   add_foreign_key "invoice_pies", "invoices"
-  add_foreign_key "invoice_pies", "pies", column: "pie_id"
+  add_foreign_key "invoice_pies", "pies"
   add_foreign_key "invoices", "users"
 end

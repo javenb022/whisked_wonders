@@ -1,7 +1,12 @@
 <nav>
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Shop', shop_path %>
-  <%= link_to 'About', about_path %>
-  <%= link_to 'Reviews', reviews_path %>
-  <%= link_to 'Contact', contact_path %>
+  <%= button_to 'Home', root_path, method: :get %>
+  <%= button_to 'Shop', shop_path, method: :get %>
+  <%= button_to 'About', about_path, method: :get %>
+  <%= button_to 'Reviews', reviews_path, method: :get %>
+  <%= button_to 'Contact', contact_path, method: :get %>
+  <% if session[:user_id] %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  <% else %>
+    <%= button_to 'Login', login_path, method: :get %>
+  <% end %>
 </nav>

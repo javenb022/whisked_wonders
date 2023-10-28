@@ -7,7 +7,7 @@ RSpec.describe "NavBarRoutes", type: :feature do
 
       expect(current_path).to eq(root_path)
       within("nav") do
-        expect(page).to have_link("Home", href: root_path)
+        expect(page).to have_button("Home")
       end
     end
 
@@ -16,10 +16,10 @@ RSpec.describe "NavBarRoutes", type: :feature do
 
       expect(current_path).to eq(root_path)
       within("nav") do
-        expect(page).to have_link("Shop", href: shop_path)
+        expect(page).to have_button("Shop")
       end
 
-      click_link("Shop")
+      click_button("Shop")
       expect(current_path).to eq(shop_path)
     end
 
@@ -28,10 +28,10 @@ RSpec.describe "NavBarRoutes", type: :feature do
 
       expect(current_path).to eq(root_path)
       within("nav") do
-        expect(page).to have_link("About", href: about_path)
+        expect(page).to have_button("About")
       end
 
-      click_link("About")
+      click_button("About")
       expect(current_path).to eq(about_path)
     end
 
@@ -40,10 +40,10 @@ RSpec.describe "NavBarRoutes", type: :feature do
 
       expect(current_path).to eq(root_path)
       within("nav") do
-        expect(page).to have_link("Reviews", href: reviews_path)
+        expect(page).to have_button("Reviews")
       end
 
-      click_link("Reviews")
+      click_button("Reviews")
       expect(current_path).to eq(reviews_path)
     end
 
@@ -52,10 +52,10 @@ RSpec.describe "NavBarRoutes", type: :feature do
 
       expect(current_path).to eq(root_path)
       within("nav") do
-        expect(page).to have_link("Contact", href: contact_path)
+        expect(page).to have_button("Contact")
       end
 
-      click_link("Contact")
+      click_button("Contact")
       expect(current_path).to eq(contact_path)
     end
   end
