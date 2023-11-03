@@ -4,7 +4,7 @@ RSpec.describe "Logout", type: :feature do
   describe "User can logout" do
     describe "Happy Path" do
       it "logs out the user" do
-        user = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip: "80202")
+        user = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip_code: "80202")
         visit login_path
         fill_in "email", with: "#{user.email}"
         fill_in "password", with: "#{user.password}"

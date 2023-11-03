@@ -33,7 +33,7 @@ RSpec.describe "LoginLogout", type: :feature do
       end
 
       it "has a logout button on the navbar when logged in" do
-        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip: "80202")
+        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip_code: "80202")
         visit root_path
 
         expect(current_path).to eq(root_path)
@@ -66,7 +66,7 @@ RSpec.describe "LoginLogout", type: :feature do
       end
 
       it "raises an error if the password is incorrect" do
-        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip: "80202")
+        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip_code: "80202")
         visit login_path
 
         expect(current_path).to eq(login_path)
@@ -80,7 +80,7 @@ RSpec.describe "LoginLogout", type: :feature do
       end
 
       it "raises an error if the email is blank" do
-        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip: "80202")
+        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip_code: "80202")
         visit login_path
 
         expect(current_path).to eq(login_path)
@@ -94,7 +94,7 @@ RSpec.describe "LoginLogout", type: :feature do
       end
 
       it "raises an error if the password is blank" do
-        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip: "80202")
+        @user1 = User.create!(email: "user1@email.com", password: "password", first_name: "User", last_name: "1", address: "123 Main", city: "Denver", state: "CO", zip_code: "80202")
         visit login_path
 
         expect(current_path).to eq(login_path)
