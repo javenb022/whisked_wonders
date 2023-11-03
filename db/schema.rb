@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_28_161025) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_03_154755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_28_161025) do
     t.string "address", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.string "zip", null: false
+    t.string "zip_code", null: false
   end
 
   add_foreign_key "invoice_pies", "invoices"
