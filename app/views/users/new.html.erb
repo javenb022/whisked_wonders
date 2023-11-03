@@ -1,0 +1,31 @@
+<h1>Register New User</h1>
+<%= form_with model: @user do |f| %>
+  <%= f.label :first_name, "First Name: " %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name, "Last Name: " %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :address, "Address: " %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city, "City: " %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state, "State: " %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip_code, "Zipcode: " %>
+  <%= f.text_field :zip_code %>
+
+  <%= f.label :email, "Email: " %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password, "Password: " %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "Re-enter Password: " %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Create Account" %>
+<% end %>
