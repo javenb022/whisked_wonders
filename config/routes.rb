@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/contact", to: "contact#index", as: "contact"
 
   get "/register", to: "users#new", as: "new_user"
-  post "/register", to: "users#create"
+  post "/register", to: "users#create", as: "users"
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
